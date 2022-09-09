@@ -78,8 +78,7 @@ var User = mongoose.model('user',{
   password: {type:String, required : True},
 })
 
-
-
+/*
 app.post('/user', (req, res)=>{
   var user = new User({uname: req.body.uname, email: req.body.email, password: req.body.psw});
   user.save().then(newUser =>{
@@ -89,7 +88,7 @@ app.post('/user', (req, res)=>{
     res.send("something went wrong");
     res.redirect('/user')
   })
-})
+})*/
 
 window.onscroll = function() {myFunction()};
 

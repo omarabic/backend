@@ -5,9 +5,7 @@ var mongoose = require('mongoose')
 var port = 8080;
 var dbURL = 'mongodb+srv://omar99:<bmHGO0TOIumaKUhB>@zedd.ausytq6.mongodb.net/z';
 var Search = document.getElementById("Search");
-var modal = document.getElementById('id01');
-var modal2 = document.getElementById('id02');
-var modal3 = document.getElementById('modal3');
+
 var publicFolder = path.join(__dirname, 'public');
 mongoose.connect('mongodb+srv://omar99:<bmHGO0TOIumaKUhB>@zedd.ausytq6.mongodb.net/z');
 
@@ -25,27 +23,6 @@ app.get('', (req, res) =>{
 })
 
 
-function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById('#main').style.background='rgba(0, 0, 0, 0.37)';
-  object.style.zIndex="100";}
-
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";}
-
-
-function opencart() {
-  document.getElementById("Cart2").style.width = "100%";
-  document.getElementById('#main').style.background='rgba(0, 0, 0, 0.37)';
-  object.style.zIndex="105";}
-
-function closecart() {
-  document.getElementById("mySidebar").style.width = "0";}
-
- window.onclick = function(event) {
-  if (event.target == modal) {
-  modal.style.display = "none";
-}}
 
 mongoose.connect(dbURL).then (() => {
   console.log("connected to the cloud")
@@ -83,10 +60,10 @@ app.post('/user', (req, res)=>{
   var user = new User({uname: req.body.uname, email: req.body.email, password: req.body.psw});
   user.save().then(newUser =>{
     res.send("created new user");
-    res.redirect('/user');
+    res.redirect('/main');
   }).catch(err =>{
     res.send("something went wrong");
-    res.redirect('/user')
+    res.redirect('/main')
   })
 })*/
 
@@ -108,20 +85,4 @@ window.onclick = function(event) {
 
 
 
-var back = document.getElementById("scrollback");
 
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
- if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-   back.style.display = "block";
- } else {
-   back.style.display = "none";
- }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
- document.body.scrollTop = 0;
- document.documentElement.scrollTop = 0;
-}
